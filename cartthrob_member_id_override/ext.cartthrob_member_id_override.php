@@ -171,9 +171,9 @@ class Cartthrob_member_id_override_ext {
  
 	public function cartthrob_pre_process()
 	{
-		if ($this->EE->input->post('membrer_id') && !($this->EE->input->post('checkout_as_customer_id')))
+		if ($this->EE->input->post('member_id') && !($this->EE->input->post('checkout_as_customer_id')))
 		{
-			$_POST['checkout_as_customer_id'] = $this->EE->input->post('membrer_id'); 
+			$_POST['checkout_as_customer_id'] = $this->EE->input->post('member_id'); 
 		}
 		$member = NULL; 
 
