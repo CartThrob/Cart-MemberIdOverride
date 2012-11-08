@@ -4,8 +4,9 @@ extension-member-id-override
 This extension allows a superadmin to create a transaction for a customer by assigning a member id in the checkout form. 
 
 Add an input called "checkout_as_customer_id" with the member id you want to assign the purchase to. 
+Set the checkout_as_customer_id parameter to "yes" as well
 
-	{exp:cartthrob:checkout_form return="" }
+	{exp:cartthrob:checkout_form return="" checkout_as_customer_id="yes" }
 
 		{gateway_fields}
 
