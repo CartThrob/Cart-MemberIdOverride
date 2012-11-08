@@ -68,6 +68,7 @@ class Cartthrob_member_id_override_ext {
 		$this->EE->lang->loadfile($this->module_name);
 		
 		$this->description = lang($this->module_name. "_description"); 
+		$this->name = lang($this->module_name. "_name"); 
 
 
 		$this->profile_edit_channel =$this->load_profile_edit(); 
@@ -108,6 +109,9 @@ class Cartthrob_member_id_override_ext {
 			'version'	=> $this->version,
 			'enabled'	=> 'y'
 		);
+
+		$this->EE->db->insert('extensions', $data);			
+
 		$data = array(
 			'class'		=> __CLASS__,
 			'method'	=> 'form_builder_form_start',
@@ -253,7 +257,7 @@ class Cartthrob_member_id_override_ext {
 		{
  			if ( in_array($this->EE->session->userdata('group_id'), $this->admin_group_ids) &&   $this->EE->TMPL->fetch_param('checkout_as_customer_id')  )
 			{
- 				$this->EE->cartthrob->cart->set_config('save_member_data', 0);
+  				$this->EE->cartthrob->cart->set_config('save_member_data', 0);
 				$this->EE->cartthrob->cart->save();
 			}
 		}
@@ -551,7 +555,7 @@ class Cartthrob_member_id_override_ext {
 		$this->EE->cartthrob->cart->save();
 
 		$this->update_profile($this->get_member_id(), $this->EE->input->post('custom_data'));
-	}
+ 	}
 
 	// ----------------------------------------------------------------------
 
